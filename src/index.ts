@@ -4,6 +4,9 @@ import * as PieceTypes from './piece-types';
 
 export default {
   PasteHandler,
-  ...MovePiece,
-  ...PieceTypes,
+  movePiece: MovePiece.movePiece,
+  getPiece: MovePiece.getPiece,
+  getPieceGrid: MovePiece.getPieceGrid,
+  Piece: PieceTypes.Piece,
+  BlockValue: PieceTypes.BlockValue,
 };
