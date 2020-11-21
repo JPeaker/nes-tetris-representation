@@ -2,7 +2,7 @@ import React from 'react';
 import _ from 'lodash';
 import { ActivePiece, Grid, Piece } from './piece-types';
 import { getPiece, movePiece } from './move-piece';
-import TetrisGrid from './tetris-grid';
+import { TetrisGrid } from './tetris-grid';
 
 interface PlacePiecesProps {
   grid: Grid;

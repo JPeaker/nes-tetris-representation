@@ -143,7 +143,7 @@ export class PasteHandler {
   }
 }
 
-export default (
+export const setUpPasting = (
   pasteAreaElement: HTMLDivElement,
   pastedImageElement: HTMLImageElement,
   dummyCanvas: HTMLCanvasElement,

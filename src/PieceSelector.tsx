@@ -1,7 +1,7 @@
 import React from 'react';
 import './representation.css';
 import { Piece } from './piece-types';
-import TetrisGrid from './tetris-grid';
+import { TetrisGrid } from './tetris-grid';
 import choosePieceInputHandler from './choose-piece-input-handler';
 import { getPieceGrid } from './move-piece';
 
