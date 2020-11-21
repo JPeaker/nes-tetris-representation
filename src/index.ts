@@ -2,6 +2,7 @@ import Block, { BlockProps } from './block';
 import { movePiece, getPiece, getPieceGrid } from './move-piece';
 import setUpPasting from './paste-handler';
 import { Piece, BlockValue, BlockPlace, Row, Grid, PieceList, ActivePiece } from './piece-types';
+import TetrisGrid from './tetris-grid';
 
 export {
   Block,
@@ -17,4 +18,5 @@ export {
   BlockPlace,
   Row,
   Grid,
+  TetrisGrid,
 };
