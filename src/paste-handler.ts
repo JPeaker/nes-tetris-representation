@@ -11,19 +11,54 @@ import { BlockValue, Grid } from './piece-types';
  *
  * This class allows you to paste an image from a clipboard and convert that into a Tetris grid.
  */
-export default class PasteHandler {
+export class PasteHandler {
   pasteAreaElement: HTMLDivElement;
   pastedImageElement: HTMLImageElement;
   dummyCanvas: HTMLCanvasElement;
+  callback: (grid: Grid) => void;
 
-  loadedStateFromImage: boolean;
+  loadedStateFromImage = false;
 
-  constructor(pasteAreaId: string, pasteImageId: string, dummyCanvasId: string) {
-    this.pasteAreaElement = document.getElementById(pasteAreaId) as HTMLDivElement;
-    this.pastedImageElement = document.getElementById(pasteImageId) as HTMLImageElement;
-    this.dummyCanvas = document.getElementById(dummyCanvasId) as HTMLCanvasElement;
+  constructor(
+    pasteAreaElement: HTMLDivElement,
+    pastedImageElement: HTMLImageElement,
+    dummyCanvas: HTMLCanvasElement,
+    callback: (grid: Grid) => void,
+  ) {
+    this.pasteAreaElement = pasteAreaElement;
+    this.pastedImageElement = pastedImageElement;
+    this.dummyCanvas = dummyCanvas;
+    this.callback = callback;
 
-    this.loadedStateFromImage = false;
+    this.setup();
+  }
+
+  setup() {
+    const that = this;
+    // When an image is pasted, get the board state from it
+    this.pasteAreaElement.onpaste = (event: ClipboardEvent) => {
+      // use event.originalEvent.clipboard for newer chrome versions
+      const { items } = event.clipboardData!;
+      // find pasted image among pasted items
+      let blob = null;
+      // tslint:disable-next-line prefer-for-of
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].type.indexOf('image') === 0) {
+          blob = items[i].getAsFile();
+        }
+      }
+      // load image if there is a pasted image
+      if (blob !== null) {
+        const reader = new FileReader();
+        reader.onload = (onLoadEvent) => {
+          that.pastedImageElement.onload = () => {
+            that.callback(that.getBoardStateFromImage(that.pastedImageElement));
+          };
+          that.pastedImageElement.src = onLoadEvent.target!.result as string;
+        };
+        reader.readAsDataURL(blob);
+      }
+    };
   }
 
   getBoardStateFromImage(img: HTMLImageElement): Grid {
@@ -106,32 +141,16 @@ export default class PasteHandler {
       }
     }
   }
-
-  setUpPasteability(callback: (grid: Grid) => void) {
-    const that = this;
-    // When an image is pasted, get the board state from it
-    this.pasteAreaElement.onpaste = (event: ClipboardEvent) => {
-      // use event.originalEvent.clipboard for newer chrome versions
-      const { items } = event.clipboardData!;
-      // find pasted image among pasted items
-      let blob = null;
-      // tslint:disable-next-line prefer-for-of
-      for (let i = 0; i < items.length; i++) {
-        if (items[i].type.indexOf('image') === 0) {
-          blob = items[i].getAsFile();
-        }
-      }
-      // load image if there is a pasted image
-      if (blob !== null) {
-        const reader = new FileReader();
-        reader.onload = (onLoadEvent) => {
-          that.pastedImageElement.onload = () => {
-            callback(that.getBoardStateFromImage(that.pastedImageElement));
-          };
-          that.pastedImageElement.src = onLoadEvent.target!.result as string;
-        };
-        reader.readAsDataURL(blob);
-      }
-    };
-  }
 }
+
+export default (
+  pasteAreaElement: HTMLDivElement,
+  pastedImageElement: HTMLImageElement,
+  dummyCanvas: HTMLCanvasElement,
+  callback: (grid: Grid) => void,
+) => new PasteHandler(
+  pasteAreaElement,
+  pastedImageElement,
+  dummyCanvas,
+  callback,
+);

@@ -1,12 +1,20 @@
-import PasteHandler from './paste-handler';
+import Block from './block';
 import * as MovePiece from './move-piece';
-import * as PieceTypes from './piece-types';
+import addPastingFunctionality from './paste-handler';
+import PieceSelector from './PieceSelector';
+import PlacePieces from './PlacePieces';
+import TetrisGrid from './tetris-grid';
+
+import handler from './choose-piece-input-handler';
+
+console.log(handler({ code: 'KeyL' } as KeyboardEvent, false));
 
 export default {
-  PasteHandler,
-  movePiece: MovePiece.movePiece,
-  getPiece: MovePiece.getPiece,
-  getPieceGrid: MovePiece.getPieceGrid,
-  Piece: PieceTypes.Piece,
-  BlockValue: PieceTypes.BlockValue,
+  Block,
+  ...MovePiece,
+  addPastingFunctionality,
+  PieceSelector,
+  PlacePieces,
+  TetrisGrid,
 };
+

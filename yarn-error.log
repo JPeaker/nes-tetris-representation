@@ -1,0 +1,70 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Program Files (x86)\Yarn\bin\yarn.js add @types/react, classnames
+
+PATH: 
+  C:\Users\josh.peaker\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\usr\bin;C:\Users\josh.peaker\Downloads\ConEmuPack.180528\ConEmu\Scripts;C:\Users\josh.peaker\Downloads\ConEmuPack.180528;C:\Users\josh.peaker\Downloads\ConEmuPack.180528\ConEmu;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\Git\cmd;C:\Program Files\dotnet;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files (x86)\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn;C:\Program Files (x86)\Microsoft SQL Server\140\DTS\Binn;C:\Program Files (x86)\Microsoft SQL Server\140\Tools\Binn\ManagementStudio;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\ProgramData\chocolatey\bin;C:\ProgramData\nvm;C:\Program Files\nodejs;C:\Program Files (x86)\Yarn\bin;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\erl10.3\bin;C:\Program Files (x86)\Elixir\bin;C:\Users\josh.peaker\.mix\escripts;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\josh.peaker\AppData\Local\Microsoft\WindowsApps;C:\Users\josh.peaker\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\josh.peaker\.dotnet\tools;C:\Users\josh.peaker\AppData\Local\Programs\Fiddler;C:\Program Files (x86)\NuGet;C:\Program Files\Business Objects\Common\2.8\bin;C:\Users\josh.peaker\AppData\Local\Programs\Python\Python38-32;C:\Users\josh.peaker\AppData\Local\Programs\Python\Python38-32\Scripts;C:\Users\josh.peaker\AppData\Local\Microsoft\WindowsApps;C:\Users\josh.peaker\AppData\Local\Yarn\bin;C:\Program Files (x86)\Terraform;C:\Users\josh.peaker\.dotnet\tools;C:\Users\josh.peaker\AppData\Local\Box\Box Edit;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.19.1
+
+Node version: 
+  12.14.1
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: https://registry.npmjs.org/@types%2freact,: Not found
+      at Request.params.callback [as _callback] (C:\Program Files (x86)\Yarn\lib\cli.js:66035:18)
+      at Request.self.callback (C:\Program Files (x86)\Yarn\lib\cli.js:140564:22)
+      at Request.emit (events.js:223:5)
+      at Request.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141536:10)
+      at Request.emit (events.js:223:5)
+      at IncomingMessage.<anonymous> (C:\Program Files (x86)\Yarn\lib\cli.js:141458:12)
+      at Object.onceWrapper (events.js:312:28)
+      at IncomingMessage.emit (events.js:228:7)
+      at endReadableNT (_stream_readable.js:1185:12)
+      at processTicksAndRejections (internal/process/task_queues.js:81:21)
+
+npm manifest: 
+  {
+    "name": "nes-tetris-representation",
+    "version": "1.3.1",
+    "description": "A set of types and classes that represent the pieces, movement, and rng of NES Tetris",
+    "main": "index.js",
+    "types": "index.d.ts",
+    "files": [
+      "lib/**/*"
+    ],
+    "devDependencies": {
+      "prettier": "^2.1.2",
+      "tslint": "^6.1.3",
+      "tslint-config-prettier": "^1.18.0",
+      "typescript": "^4.0.5"
+    },
+    "scripts": {
+      "build": "tsc",
+      "format": "prettier --write \"src/**/*.ts\"",
+      "lint": "tslint -p tsconfig.json",
+      "prepare": "npm run build",
+      "prepublishOnly": "npm run lint",
+      "preversion": "npm run lint",
+      "version": "npm run format && git add -A src",
+      "postversion": "git push && git push --tags"
+    },
+    "author": "Josh Peaker",
+    "keywords": [
+      "Tetris",
+      "NES"
+    ],
+    "license": "ISC",
+    "dependencies": {
+      "react": "^17.0.1"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

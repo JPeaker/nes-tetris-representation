@@ -1,0 +1,140 @@
+.row {
+  width: 100%;
+  height: 100%;
+}
+
+.block {
+  height: 100%;
+  display: inline-block;
+  vertical-align: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.block-1 {
+  background-image: url('./static/block-1.png');
+}
+
+.block-2 {
+  background-image: url('./static/block-2.png');
+}
+
+.block-3 {
+  background-image: url('./static/block-3.png');
+}
+
+.near-invisible {
+  opacity: 0.25;
+}
+
+.slightly-hidden {
+  opacity: 0.75;
+}
+
+.hidden {
+  background-image: none;
+  background-color: black;
+}
+
+.grid-disabled .block {
+  opacity: 0.25;
+}
+
+.show-diff {
+  opacity: 0.5;
+}
+
+.piece-selector-selectable-piece {
+  display: inline-block;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.selectable-piece {
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.selected-piece {
+  border: 1px solid green;
+}
+
+.piece-selector-container {
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.piece-selector-grid-item {
+  text-align: center !important;
+  margin-top: 2rem !important;
+  margin-bottom: 2rem !important;
+  flex-grow: 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: block;
+}
+
+.grid-item-1 {
+  max-width: 8.33333333333333333%;
+  flex-basis: 8.33333333333333333%;
+}
+
+.grid-item-2 {
+  max-width: 16.66666666666666666666%;
+  flex-basis: 16.66666666666666666666%;
+}
+
+.grid-item-3 {
+  max-width: 25%;
+  flex-basis: 25%;
+}
+
+.grid-item-4 {
+  max-width: 33.333333333333333333%;
+  flex-basis: 33.333333333333333333%;
+}
+
+.grid-item-5 {
+  max-width: 41.666666666666666666666%;
+  flex-basis: 41.666666666666666666666%;
+}
+
+.grid-item-6 {
+  max-width: 50%;
+  flex-basis: 50%;
+}
+
+.grid-item-7 {
+  max-width: 58.33333333333333333333%;
+  flex-basis: 58.33333333333333333333%;
+}
+
+.grid-item-8 {
+  max-width: 66.66666666666666666666%;
+  flex-basis: 66.66666666666666666666%;
+}
+
+.grid-item-9 {
+  max-width: 75%;
+  flex-basis: 75%;
+}
+
+.grid-item-10 {
+  max-width: 83.333333333333333333333%;
+  flex-basis: 83.333333333333333333333%;
+}
+
+.grid-item-11 {
+  max-width: 91.66666666666666666666666%;
+  flex-basis: 91.66666666666666666666666%;
+}
+
+.grid-item-12 {
+  max-width: 100%;
+  flex-basis: 100%;
+}
