@@ -1,6 +1,6 @@
 {
   "name": "nes-tetris-representation",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "A set of types and classes that represent the pieces, movement, and rng of NES Tetris",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

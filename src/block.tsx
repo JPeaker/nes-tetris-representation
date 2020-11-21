@@ -15,7 +15,8 @@ export interface BlockProps {
   onMouseEnter?: (event: MouseEvent) => void;
   onClick?: (event: MouseEvent) => void;
 }
-function Block({ value, nearInvisible, slightlyHidden, showDiff, row, column, onMouseEnter, onClick, disabled, width }: BlockProps) {
+
+export default function Block({ value, nearInvisible, slightlyHidden, showDiff, row, column, onMouseEnter, onClick, disabled, width }: BlockProps) {
   const adjustedValue = slightlyHidden ? filledGrid[row][column] : value;
   return (
     <div
@@ -36,5 +37,3 @@ function Block({ value, nearInvisible, slightlyHidden, showDiff, row, column, on
     />
   );
 }
-
-export default Block;

@@ -1,7 +1,20 @@
-export * from './block';
-export * from './move-piece';
-export * from './paste-handler';
-export * from './PieceSelector';
-export * from './PlacePieces';
-export * from './tetris-grid';
-export * from './piece-types';
+import Block, { BlockProps } from './block';
+import { movePiece, getPiece, getPieceGrid } from './move-piece';
+import setUpPasting from './paste-handler';
+import { Piece, BlockValue, BlockPlace, Row, Grid, PieceList, ActivePiece } from './piece-types';
+
+export {
+  Block,
+  BlockProps,
+  movePiece,
+  getPiece,
+  getPieceGrid,
+  setUpPasting,
+  Piece,
+  PieceList,
+  ActivePiece,
+  BlockValue,
+  BlockPlace,
+  Row,
+  Grid,
+};
