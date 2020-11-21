@@ -1,18 +1,7 @@
-import Block from './block';
-import { movePiece, getPiece, getPieceGrid } from './move-piece';
-import addPastingFunctionality from './paste-handler';
-import PieceSelector from './PieceSelector';
-import PlacePieces from './PlacePieces';
-import TetrisGrid from './tetris-grid';
-
-export default {
-  Block,
-  movePiece,
-  getPiece,
-  getPieceGrid,
-  addPastingFunctionality,
-  PieceSelector,
-  PlacePieces,
-  TetrisGrid,
-};
-
+export * from './block';
+export * from './move-piece';
+export * from './paste-handler';
+export * from './PieceSelector';
+export * from './PlacePieces';
+export * from './tetris-grid';
+export * from './piece-types';
