@@ -1,9 +1,9 @@
 import React from 'react';
-import { Grid } from './piece-types';
+import { BlockValue, ColumnIndex, Grid, RowIndex } from 'nes-tetris-representation';
 import './representation.css';
 import Block, { BlockProps } from './block';
 
-type GetBlockFunction = (row: number, column: number, value: number) => Partial<BlockProps>;
+type GetBlockFunction = (row: RowIndex, column: ColumnIndex, value: BlockValue) => Partial<BlockProps>;
 
 interface TetrisGridProps {
   grid: Grid;
@@ -16,7 +16,7 @@ interface TetrisGridProps {
   hideTopTwoRows?: boolean;
 }
 
-function getRow(row: number, blocks: number[], beforeBlocks: number[] | null, blockSizeInRem: number, getBlockProps: GetBlockFunction | undefined) {
+function getRow(row: RowIndex, blocks: BlockValue[], beforeBlocks: BlockValue[] | null, blockSizeInRem: number, getBlockProps: GetBlockFunction | undefined) {
   const width = blocks.length ? `${100 / blocks.length}%` : 'auto';
   return (
     <div className="row" key={row} style={{ height: `${blockSizeInRem}rem` }}>
@@ -29,7 +29,7 @@ function getRow(row: number, blocks: number[], beforeBlocks: number[] | null, bl
             value={block}
             width={width}
             showDiff={!!beforeBlocks && !!block && !beforeBlocks[blockIndex]}
-            {...(getBlockProps === undefined ? undefined : getBlockProps(row, blockIndex, block))}
+            {...(getBlockProps === undefined ? undefined : getBlockProps(row, blockIndex as ColumnIndex, block))}
           />)
       }
     </div>
@@ -47,7 +47,7 @@ export function TetrisGrid({ grid, beforeGrid = null, blockSizeInRem = 2, onClic
         grid.map((row, rowKey) => {
           return hideTopTwoRows && rowKey < 2
             ? null
-            : getRow(rowKey, row, beforeGrid ? beforeGrid[rowKey] : null, blockSizeInRem, getBlockProps)
+            : getRow(rowKey as RowIndex, row, beforeGrid ? beforeGrid[rowKey] : null, blockSizeInRem, getBlockProps)
         })
       }
     </div>

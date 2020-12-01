@@ -1,4 +1,4 @@
-import { BlockValue, Grid } from './piece-types';
+import { BlockValue, Grid } from 'nes-tetris-representation';
 
 /*
  * Heavily drawn from https://github.com/GregoryCannon/TetrisTrainer/blob/master/src/board_loader.js by GregoryCannon,

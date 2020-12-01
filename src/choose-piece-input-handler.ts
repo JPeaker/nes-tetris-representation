@@ -1,4 +1,4 @@
-import { Piece, PieceList } from './piece-types';
+import { Piece, PieceList } from 'nes-tetris-representation';
 
 const numpadMap: { [key: string]: Piece } = {
   Numpad5: Piece.I,

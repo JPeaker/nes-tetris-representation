@@ -1,9 +1,8 @@
 import React from 'react';
 import './representation.css';
-import { Piece } from './piece-types';
+import { Piece, getPieceGrid,  } from 'nes-tetris-representation';
 import { TetrisGrid } from './tetris-grid';
 import choosePieceInputHandler from './choose-piece-input-handler';
-import { getPieceGrid } from './move-piece';
 
 interface PieceSelectorProps {
   piece: Piece | null;

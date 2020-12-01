@@ -1,7 +1,6 @@
 import React from 'react';
 import _ from 'lodash';
-import { ActivePiece, Grid, Piece } from './piece-types';
-import { getPiece, movePiece } from './move-piece';
+import { ActivePiece, Grid, Piece, getPiece, movePiece } from 'nes-tetris-representation';
 import { TetrisGrid } from './tetris-grid';
 
 interface PlacePiecesProps {

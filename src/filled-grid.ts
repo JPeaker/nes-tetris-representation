@@ -1,4 +1,4 @@
-import { Grid } from "./piece-types";
+import { Grid } from 'nes-tetris-representation';
 
 const filledGrid: Grid = [
   [2, 2, 2, 2, 3, 2, 2, 2, 2, 2],
