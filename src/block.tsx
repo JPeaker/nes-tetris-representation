@@ -13,11 +13,11 @@ export interface BlockProps {
   slightlyHidden?: boolean;
   showDiff?: boolean;
   onMouseEnter?: (event: MouseEvent) => void;
-  onScroll?: (event: React.UIEvent<HTMLDivElement, UIEvent>) => void;
+  onWheel?: (event: React.UIEvent<HTMLDivElement, UIEvent>) => void;
   onClick?: (event: MouseEvent) => void;
 }
 
-export default function Block({ value, nearInvisible, slightlyHidden, showDiff, row, column, onMouseEnter, onScroll, onClick, disabled, width }: BlockProps) {
+export default function Block({ value, nearInvisible, slightlyHidden, showDiff, row, column, onMouseEnter, onWheel, onClick, disabled, width }: BlockProps) {
   const adjustedValue = slightlyHidden ? filledGrid[row][column] : value;
   return (
     <div
@@ -26,7 +26,7 @@ export default function Block({ value, nearInvisible, slightlyHidden, showDiff, 
       style={{ width }}
       onMouseEnter={onMouseEnter}
       onMouseDown={disabled ? undefined : onClick}
-      onScroll={onScroll}
+      onWheel={onWheel}
       className={classnames({
         block: true,
         hidden: !nearInvisible && !slightlyHidden && !value,
