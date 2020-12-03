@@ -42,7 +42,7 @@ export function TetrisGrid({ grid, beforeGrid = null, blockSizeInRem = 2, onClic
   const width = blockSizeInRem * numberOfColumns;
   const height = blockSizeInRem * numberOfRows;
   return (
-    <div style={{ height: `${height}rem`, width: `${width}rem`, margin: 'auto' }} onClick={onClick} onMouseLeave={onMouseLeave} className={className}>
+    <div style={{ height: `${height}rem`, width: `${width}rem` }} onClick={onClick} onMouseLeave={onMouseLeave} className={className}>
       {
         grid.map((row, rowKey) => {
           return hideTopTwoRows && rowKey < 2
