@@ -21,7 +21,7 @@ interface TetrisGridProps {
 function getRow(row: RowIndex, blocks: BlockValue[], beforeBlocks: BlockValue[] | null, blockSizeInRem: number, getBlockProps: GetBlockFunction | undefined) {
   const width = blocks.length ? `${100 / blocks.length}%` : 'auto';
   return (
-    <div className="row" key={row} style={{ height: `${blockSizeInRem}rem` }}>
+    <div className="tetris-row" key={row} style={{ height: `${blockSizeInRem}rem` }}>
       {
         blocks.map((block, blockIndex) =>
           <Block

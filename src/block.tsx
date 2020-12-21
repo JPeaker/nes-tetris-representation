@@ -28,11 +28,11 @@ export default function Block({ value, nearInvisible, slightlyHidden, showDiff, 
       onMouseDown={disabled ? undefined : onClick}
       onWheel={onWheel}
       className={classnames({
-        block: true,
-        hidden: !nearInvisible && !slightlyHidden && !value,
-        [`block-${adjustedValue}`]: true,
-        'near-invisible': nearInvisible,
-        'slightly-hidden': slightlyHidden || disabled,
+        'tetris-block': true,
+        'tetris-hidden': !nearInvisible && !slightlyHidden && !value,
+        [`tetris-block-${adjustedValue}`]: true,
+        'tetris-near-invisible': nearInvisible,
+        'tetris-slightly-hidden': slightlyHidden || disabled,
         'show-diff': showDiff,
       })}
       onDragEnter={onClick}
