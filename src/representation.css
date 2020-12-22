@@ -37,6 +37,10 @@
   background-color: black;
 }
 
+.tetris-hidden.transparent {
+  background-color: unset;
+}
+
 .grid-disabled .tetris-block {
   opacity: 0.25;
 }

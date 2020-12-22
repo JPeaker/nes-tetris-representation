@@ -1,6 +1,6 @@
 {
   "name": "nes-tetris-components",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A set of components and front-end functionality of NES Tetris",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

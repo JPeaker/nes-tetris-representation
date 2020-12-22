@@ -16,9 +16,10 @@ interface TetrisGridProps {
   onMouseLeave?: () => void;
   className?: string;
   hideTopTwoRows?: boolean;
+  transparentEmptyBlocks?: boolean;
 }
 
-function getRow(row: RowIndex, blocks: BlockValue[], beforeBlocks: BlockValue[] | null, blockSizeInRem: number, getBlockProps: GetBlockFunction | undefined) {
+function getRow(row: RowIndex, blocks: BlockValue[], beforeBlocks: BlockValue[] | null, blockSizeInRem: number, getBlockProps: GetBlockFunction | undefined, transparentEmptyBlocks?: boolean) {
   const width = blocks.length ? `${100 / blocks.length}%` : 'auto';
   return (
     <div className="tetris-row" key={row} style={{ height: `${blockSizeInRem}rem` }}>
@@ -30,6 +31,7 @@ function getRow(row: RowIndex, blocks: BlockValue[], beforeBlocks: BlockValue[] 
             column={blockIndex}
             value={block}
             width={width}
+            transparent={transparentEmptyBlocks}
             showDiff={!!beforeBlocks && !!block && !beforeBlocks[blockIndex]}
             {...(getBlockProps === undefined ? undefined : getBlockProps(row, blockIndex as ColumnIndex, block))}
           />)
@@ -47,6 +49,7 @@ export function TetrisGrid({
   onMouseLeave,
   getBlockProps,
   hideTopTwoRows = true,
+  transparentEmptyBlocks = false,
   className,
 }: TetrisGridProps) {
   let adjustedBeforeGrid: Grid | null = beforeGrid;
@@ -71,7 +74,7 @@ export function TetrisGrid({
         adjustedGrid.map((row, rowKey) => {
           return hideTopTwoRows && rowKey < 2
             ? null
-            : getRow(rowKey as RowIndex, row, adjustedBeforeGrid ? adjustedBeforeGrid[rowKey] : null, blockSizeInRem, getBlockProps)
+            : getRow(rowKey as RowIndex, row, adjustedBeforeGrid ? adjustedBeforeGrid[rowKey] : null, blockSizeInRem, getBlockProps, transparentEmptyBlocks)
         })
       }
     </div>

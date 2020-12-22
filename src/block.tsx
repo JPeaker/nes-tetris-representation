@@ -11,13 +11,14 @@ export interface BlockProps {
   disabled?: boolean;
   nearInvisible?: boolean;
   slightlyHidden?: boolean;
+  transparent?: boolean;
   showDiff?: boolean;
   onMouseEnter?: (event: MouseEvent) => void;
   onWheel?: (event: React.UIEvent<HTMLDivElement, UIEvent>) => void;
   onClick?: (event: MouseEvent) => void;
 }
 
-export default function Block({ value, nearInvisible, slightlyHidden, showDiff, row, column, onMouseEnter, onWheel, onClick, disabled, width }: BlockProps) {
+export default function Block({ value, nearInvisible, slightlyHidden, transparent, showDiff, row, column, onMouseEnter, onWheel, onClick, disabled, width }: BlockProps) {
   const adjustedValue = slightlyHidden ? filledGrid[row][column] : value;
   return (
     <div
@@ -33,6 +34,7 @@ export default function Block({ value, nearInvisible, slightlyHidden, showDiff, 
         [`tetris-block-${adjustedValue}`]: true,
         'tetris-near-invisible': nearInvisible,
         'tetris-slightly-hidden': slightlyHidden || disabled,
+        transparent,
         'show-diff': showDiff,
       })}
       onDragEnter={onClick}
